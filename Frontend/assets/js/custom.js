@@ -45,5 +45,8 @@ $("#update-message").hide();
 
 ipcRenderer.on('update-message', (e, d) => {
     $("#update-message").show();
-    $("#update-message").text(d);
+    let bar = $("#bar")
+    bar.attr('data-width', `${d}%`);
+    bar.attr('aria-valuenow', `${d}`);
+    bar.attr('style', `width: ${d}%;`);
 })
